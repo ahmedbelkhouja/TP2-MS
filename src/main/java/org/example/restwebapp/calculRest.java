@@ -55,6 +55,13 @@ public class calculRest {
         int result = calc.multiply(a, b);
         return Response.ok(result).build();
     }
+    @GET
+    @Path("/somme/detail")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response sommeDetail(@QueryParam("a") int a, @QueryParam("b") int b) {
+        Resultat resultat = new Resultat("somme", a, b, calc.somme(a, b));
+        return Response.ok(resultat).build();
+    }
 
 
 }
